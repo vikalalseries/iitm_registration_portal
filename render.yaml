@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: iitm-registration-portal
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"

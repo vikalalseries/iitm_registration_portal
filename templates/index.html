@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>April Fool</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f6f9;
+            text-align: center;
+        }
+
+        #loader {
+            font-size: 20px;
+        }
+
+        .spinner {
+            margin: 20px auto;
+            width: 40px;
+            height: 40px;
+            border: 5px solid #ccc;
+            border-top: 5px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        #content {
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+
+        img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="loader">
+    <div>Searching your data...</div>
+    <div class="spinner"></div>
+</div>
+
+<div id="content">
+    <img src="{{ url_for('static', filename='prank.jpg') }}" alt="prank">
+    <h2>April Fool 😄 You’ve been pranked!</h2>
+</div>
+
+<script>
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }, 2500);
+</script>
+
+</body>
+</html>
